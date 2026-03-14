@@ -24,8 +24,8 @@ export const MeuNome: FC<{ name: string, birthdate: Date }> = (props) => {
     return (
         <>
             <p>
-                Sou o {props.name}
-                e tenho {calcularIdade(props.birthdate)} anos,
+                Sou o {props.name} e
+                tenho {calcularIdade(props.birthdate)} anos,
                 nasci no dia {props.birthdate.toLocaleDateString("en-US")}
             </p>
         </>
