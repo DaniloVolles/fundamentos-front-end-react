@@ -1,5 +1,5 @@
 import {FC} from "react";
 
 export const MeuNome: FC<{ name: string }> = (props) => {
-    return <p>{props.name}</p>;
+    return props.name === "Danilo" ? <p>Sou o Danilo</p> : <p>Sou outra pessoa</p>;
 };
