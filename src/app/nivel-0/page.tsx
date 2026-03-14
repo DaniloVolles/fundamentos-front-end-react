@@ -2,8 +2,7 @@ import {MeuNome} from "@/components/MeuNome";
 
 const Page = () => {
   return <div>
-    <MeuNome name={"Danilo"}/>
-    <MeuNome name={"Andressa"}/>
+    <MeuNome name={"Danilo"} birthdate={new Date(2000, 0, 1)}/>
   </div>
 }
 
