@@ -1,13 +1,9 @@
-// FUNCTION
-// export default function Page() {
-//   return <div>Page</div>;
-// }
+import {MeuNome} from "@/components/MeuNome";
 
-// ARROW-FUNCTION
-const Page2 = () => {
-  return <div>Page</div>;
+const Page = () => {
+  return <div>
+    <MeuNome name={"Danilo"}/>
+  </div>
 }
 
-const Page3 = () => <div>Page</div>
-
-export default Page2;
+export default Page;
