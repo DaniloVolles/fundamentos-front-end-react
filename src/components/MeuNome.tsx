@@ -22,17 +22,10 @@ function calcularIdade(birthdate: Date) {
     return idade;
 }
 
-export const MeuNome: FC<MeuNomeProps> = (props) => {
-
-    const { name, birthdate } = props;
-
-    return (
-        <>
-            <p>
-                Sou o {name} e
-                tenho {calcularIdade(birthdate)} anos,
-                nasci no dia {birthdate.toLocaleDateString("pt-BR")}
-            </p>
-        </>
-    );
-};
+export const MeuNome: FC<MeuNomeProps> = ({name, birthdate}) => (
+    <p>
+        Sou o {name} e
+        tenho {calcularIdade(birthdate)} anos,
+        nasci no dia {birthdate.toLocaleDateString("pt-BR")}
+    </p>
+);
