@@ -1,5 +1,7 @@
 import {FC} from "react";
 
+type MeuNomeProps = { name: string, birthdate: Date }
+
 function calcularIdade(birthdate: Date) {
     const hoje = new Date();
     let idade = hoje.getFullYear() - birthdate.getFullYear();
@@ -20,13 +22,16 @@ function calcularIdade(birthdate: Date) {
     return idade;
 }
 
-export const MeuNome: FC<{ name: string, birthdate: Date }> = (props) => {
+export const MeuNome: FC<MeuNomeProps> = (props) => {
+
+    const { name, birthdate } = props;
+
     return (
         <>
             <p>
-                Sou o {props.name} e
-                tenho {calcularIdade(props.birthdate)} anos,
-                nasci no dia {props.birthdate.toLocaleDateString("en-US")}
+                Sou o {name} e
+                tenho {calcularIdade(birthdate)} anos,
+                nasci no dia {birthdate.toLocaleDateString("pt-BR")}
             </p>
         </>
     );
