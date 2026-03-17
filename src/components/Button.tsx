@@ -1,11 +1,11 @@
-import React, {DOMAttributes, FC, MouseEventHandler} from "react";
+import React, {FC} from "react";
 
 type ButtonProps = {
-    onClick: () => MouseEventHandler<HTMLButtonElement>;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
     children: React.ReactNode;
 }
 
-export const Button: FC<ButtonProps> = ({onClick, children}: ButtonProps) => (
+export const Button: FC<ButtonProps> = ({onClick, children}) => (
     <button
         className="
             border
