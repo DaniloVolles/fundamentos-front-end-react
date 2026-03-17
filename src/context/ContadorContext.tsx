@@ -1,10 +1,12 @@
 "use client";
 
-import React, {createContext, Dispatch, ReactNode, SetStateAction, useState} from "react";
+import React, {createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState} from "react";
+
+type ContadorType = number | null;
 
 type ContadorContextType = {
-    contador: number;
-    setContador: Dispatch<SetStateAction<number>>;
+    contador: ContadorType;
+    setContador: Dispatch<SetStateAction<ContadorType>>;
 }
 
 export const ContadorContext: React.Context<ContadorContextType> = createContext<ContadorContextType>({
@@ -14,7 +16,20 @@ export const ContadorContext: React.Context<ContadorContextType> = createContext
 
 export default function ContadorProvider({children}: {children: ReactNode}) {
 
-    const [contador, setContador] = useState(108)
+    const [contador, setContador] = useState<ContadorType>(null);
+
+    useEffect(() => {
+        const contadorSessionStorage = sessionStorage.getItem("contador") ?? 0;
+        if (contadorSessionStorage !== null) {
+            setContador(+contadorSessionStorage);
+        }
+    }, [])
+
+    useEffect(() => {
+        if (contador) {
+            sessionStorage.setItem("contador", contador.toString());
+        }
+    }, [contador]);
 
     return <ContadorContext.Provider value={{ contador, setContador }}>
         {children}
